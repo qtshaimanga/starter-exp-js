@@ -1,12 +1,13 @@
 var config = require('./webpack.config');
-var webpack = require('webpack ');
+var webpack = require('webpack');
 
-config.entry.app.unshift("webpack-hot-middleware/client");
-//"webpack-dev-server/client?http://localhost:" + port + "/", "webpack/hot/dev-server"
+Object.keys(config.entry).forEach(function (name) {
+  config.entry[name] = ['./config/dev-client'].concat(config.entry[name])
+})
 
 config.plugins = config.plugins.concat([
-  new webpack.hotModuleReplacementPlugin(),
+   new webpack.HotModuleReplacementPlugin(),
   new webpack.NoErrorsPlugin()
-])
+]);
 
 module.exports = config;

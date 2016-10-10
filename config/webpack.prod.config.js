@@ -1,17 +1,17 @@
 var config = require('./webpack.config');
-var webpack = require('webpack ');
-var extractTextPlugin = require('extract-text-webpack-plugin');
-var extractCSS = new extractTextPlugin('bundle.css');
+var webpack = require('webpack');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var extractCSS = new ExtractTextPlugin('bundle.css');
 
 config.plugins = config.plugins.concat([
   extractCSS,
   new webpack.optimize.UglifyJsPlugin({
-    comments:false
+      comments: false
   })
-]);
+])
 
 var cssLoaders = config.module.loaders[0].loaders
-config.modules.loaders[0].loaders = null
-config.modules.loaders[0].loaders = extractCSS.extract(cssLoaders.slice(1, cssLoaders.lenght-1));
+config.module.loaders[0].loaders = null
+config.module.loaders[0].loader = extractCSS.extract(cssLoaders.slice(1, cssLoaders.length+1));
 
 module.exports = config;

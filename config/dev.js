@@ -1,18 +1,17 @@
 var webpack = require('webpack')
-var config = require('./webpack.dev.config');
+var config = require('./webpack.dev.config')
 var webDevServer = require('webpack-dev-server')
-var port = 8080;
+var chokidar = require('chokidar');
+var port = 8080
 var compiler = webpack(config)
-var hotMiddleware = require('webpack-hot-middleware')(compiler);
+var hotMiddleware = require('webpack-hot-middleware')(compiler)
+
+chokidar.watch('./index.html').on('all', function(path){
+  hotMiddleware.publish({action: "reload"})
+});
 
 var server = new webDevServer(compiler, {
   hot: true,
-  // proxy: {
-  //   "*": {
-  //      target: "http://localhost:8000/",
-  //      changeOrigin : true
-  //   }
-  // },
   contentBase: './',
   quiet: false,
   noInfo: false,
@@ -20,12 +19,12 @@ var server = new webDevServer(compiler, {
   stats: {colors: true}
 });
 
-server.use('hotMiddleware');
+server.use(hotMiddleware);
 
 server.listen(port, function(error){
   if(error){
-    console.log(error);
+    console.log(error)
   }else{
-    console.log("http://localhost:" + port + "/");
+    console.log("http://localhost:" + port + "/")
   }
 });
