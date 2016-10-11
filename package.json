@@ -4,7 +4,8 @@
   "description": "starter three with webpack",
   "main": "src/main.js",
   "dependencies": {
-    "three": "^0.81.2"
+    "three": "^0.81.2",
+    "three-trackballcontrols": "0.0.5"
   },
   "devDependencies": {
     "babel-core": "^6.17.0",
