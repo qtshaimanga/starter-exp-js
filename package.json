@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "starter three with webpack",
   "main": "src/main.js",
+  "scripts": {
+    "build": "node config/build.js",
+    "dev": "node config/dev.js"
+  },
   "dependencies": {
     "three": "^0.81.2",
     "three-trackballcontrols": "0.0.5"
@@ -25,10 +29,6 @@
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.16.2",
     "webpack-hot-middleware": "^2.12.2"
-  },
-  "scripts": {
-    "build": "node config/build.js",
-    "dev": "node config/dev.js"
   },
   "repository": {
     "type": "git",

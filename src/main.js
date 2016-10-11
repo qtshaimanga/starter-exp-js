@@ -1,38 +1,26 @@
-/*Exemple fonction elastique*/
+const THREE = require('three');
 
-var w = window.innerWidth;
-var h = window.innerHeight;
-var canvas = document.createElement("canvas");
+var scene = new THREE.Scene();
+var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
 
-canvas.width = w;
-canvas.height = h;
-document.body.appendChild(canvas);
+var renderer = new THREE.WebGLRenderer();
+renderer.setSize( window.innerWidth, window.innerHeight );
+document.body.appendChild( renderer.domElement );
 
-var ctx = canvas.getContext("2d");
+var geometry = new THREE.BoxGeometry( 1, 1, 1 );
+var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+var cube = new THREE.Mesh( geometry, material );
+scene.add( cube );
 
-var pos = {x:0.5 * w, y:0.5 * h};
-var vel = {x:0, y:0};
+camera.position.z = 5;
 
-var target = {x:Math.random() * w, y:Math.random() * h};
+var render = function () {
+	requestAnimationFrame( render );
 
-var friction = 0.8;
-var spring = 0.005;
+	cube.rotation.x += 0.1;
+	cube.rotation.y += 0.1;
 
-var vt = 5;
-function update()
-{
-	ctx.fillStyle = "black";
-	vel.x = vel.x * friction + spring * (target.x - pos.x);
-	vel.y = vel.y * friction + spring * (target.y - pos.y);
-	pos.x += vel.x;
-	pos.y += vel.y;
+	renderer.render(scene, camera);
+};
 
-	ctx.fillRect(pos.x - 5, pos.y - 5, 10, 10);
-	target.x += vt * (Math.random() * 2 - 1);
-	target.y += vt * (Math.random() * 2 - 1);
-
-	ctx.fillStyle = "red";
-	ctx.fillRect(target.x - 5, target.y - 5, 10, 10);
-	requestAnimationFrame(update);
-}
-update();
+render();
