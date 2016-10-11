@@ -12,6 +12,7 @@
     "three-trackballcontrols": "0.0.5"
   },
   "devDependencies": {
+    "@superguigui/wagner": "^0.1.3",
     "babel-core": "^6.17.0",
     "babel-loader": "^6.2.5",
     "babel-preset-es2015": "^6.16.0",
