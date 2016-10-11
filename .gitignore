@@ -1,5 +1,6 @@
 #SYSTEM
 .DS_Store
+.git
 
 #MODULES
 node_modules/
