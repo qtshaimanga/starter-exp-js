@@ -3,7 +3,7 @@ var root = path.resolve(__dirname, '../')
 
 module.exports = {
   entry: {
-    app: ['./src/style/main.css', './src/main.js'] //'./src/main.js'
+    app: ['./src/style/main.css', './src/main.js']
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
@@ -15,7 +15,12 @@ module.exports = {
       {
         test: /\.css$/,
         exclude: /node_modules/,
-        loaders: ['style', 'css'] //'style!css!'
+        loaders: ['style', 'css']
+      },
+      {
+        test: /\.scss$/,
+        exclude: /node_modules/,
+        loaders: ['style', 'css', 'sass']
       },
       {
         test: /\.js$/,
@@ -30,7 +35,16 @@ module.exports = {
           limit: 10000,
           name: '[name].[hash:7].[ext]'
         }
-      }
+      },
+      {
+        test: /\.json$/,
+        loader: 'json'
+      },
+      {
+        test: /\.(glsl|frag|vert)$/,
+        exclude: /node_modules/,
+        loader: 'raw!glslify'
+      },
     ]
   },
   plugins:[]

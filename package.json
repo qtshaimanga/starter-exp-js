@@ -2,6 +2,22 @@
   "name": "starter-three-js",
   "version": "1.0.0",
   "description": "starter three with webpack",
+  "keywords": [
+    "starter",
+    "webpack",
+    "three.js",
+    "vue.js"
+  ],
+  "author": {
+    "name": "Quentin Tshaimanga",
+    "url": "http://qtshaimanga.github.io",
+    "mail": "qtshaimanga@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/qtshaimnaga/starter-three-js.git"
+  },
+  "private": true,
   "main": "src/main.js",
   "scripts": {
     "build": "node config/build.js",
@@ -9,7 +25,9 @@
   },
   "dependencies": {
     "three": "^0.81.2",
-    "three-trackballcontrols": "0.0.5"
+    "three-trackballcontrols": "0.0.5",
+    "detect-browser": "^1.5.0",
+    "mobile-detect": "^1.3.3"
   },
   "devDependencies": {
     "@superguigui/wagner": "^0.1.3",
@@ -22,6 +40,7 @@
     "eventsource-polyfill": "^0.9.6",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
+    "glslify": "^6.0.1",
     "json-loader": "^0.5.4",
     "ora": "^0.3.0",
     "shelljs": "^0.7.4",
@@ -31,10 +50,10 @@
     "webpack-dev-server": "^1.16.2",
     "webpack-hot-middleware": "^2.12.2"
   },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/username/repository.git"
-  },
-  "author": "",
-  "license": "ISC"
+  "glslify": {
+    "transform": [
+      "glslify-fancy-imports",
+      "glslify-hex"
+    ]
+  }
 }
