@@ -11,9 +11,13 @@ export default class Rectangle {
     this.render(this.x, this.y, this.width, this.height);
   }
 
-  //TODO push in the pool
   move(x, y){
     this.render(x, y, this.width, this.height);
+    this.ctx.clearRect(this.x, this.y, this.width, this.height)
+  }
+
+  scale(width, height){
+    this.render(this.y, this.y, width, height);
     this.ctx.clearRect(this.x, this.y, this.width, this.height)
   }
 
