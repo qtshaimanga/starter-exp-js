@@ -1,4 +1,4 @@
-import Rectangle from '../objects/Rectangle'
+import Rectangle from '../objects/canvas/Rectangle'
 
 
 export default class BasicCanvas{

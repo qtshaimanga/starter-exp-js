@@ -1,3 +1,3 @@
-import BasicCanvas from './components/BasicCanvas';
+import BasicThree from './components/BasicThree';
 
-new BasicCanvas();
+new BasicThree();
