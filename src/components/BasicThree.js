@@ -1,5 +1,7 @@
 import * as THREE from 'three';
 import bindAll from 'lodash.bindall';
+import Rectangle from '../objects/webgl/meshes/Rectangle';
+
 
 export default class BasicThree {
 
@@ -12,11 +14,9 @@ export default class BasicThree {
 		this.renderer.setSize( window.innerWidth, window.innerHeight );
 		document.body.appendChild( this.renderer.domElement );
 
-		this.geometry = new THREE.BoxGeometry( 1, 1, 1 );
-		this.material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
-		this.cube = new THREE.Mesh( this.geometry, this.material );
+		this.cube = new Rectangle(2, 2);
 
-		this.scene.add( this.cube );
+		this.scene.add( this.cube.mesh );
 
 		this.camera.position.z = 5;
 
@@ -29,8 +29,7 @@ export default class BasicThree {
 
 	render() {
 
-		this.cube.rotation.x += 0.01;
-		this.cube.rotation.y += 0.01;
+		this.cube.update();
 		this.renderer.render( this.scene, this.camera );
 
 		requestAnimationFrame( this.render );

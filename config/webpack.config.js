@@ -3,7 +3,7 @@ var root = path.resolve(__dirname, '../')
 
 module.exports = {
   entry: {
-    app: ['./src/style/main.css', './src/main.js']
+    app: ['./src/style/main.scss', './src/main.js']
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
@@ -20,7 +20,7 @@ module.exports = {
       {
         test: /\.scss$/,
         exclude: /node_modules/,
-        loaders: ['style', 'css', 'sass']
+        loaders: ['style', 'css', 'sass-loader']
       },
       {
         test: /\.js$/,
