@@ -3,7 +3,11 @@ import bindAll from 'lodash.bindall';
 import Rectangle from '../objects/webgl/meshes/Rectangle';
 
 
-export default class BasicThree {
+/**
+ * Creates a new BasicThree.
+ * @class
+ */
+class BasicThree {
 
 	constructor(){
 
@@ -37,3 +41,5 @@ export default class BasicThree {
 	}
 
 }
+
+export default BasicThree

@@ -1,7 +1,10 @@
 import Rectangle from '../objects/canvas/Rectangle'
 
-
-export default class BasicCanvas{
+/**
+ * Creates a new BasicCanvas.
+ * @class
+ */
+ class BasicCanvas{
 
   constructor(){
     this.body = document.getElementsByTagName("body")[0];
@@ -44,3 +47,5 @@ export default class BasicCanvas{
   }
 
 }
+
+export default BasicCanvas
