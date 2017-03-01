@@ -1,10 +1,9 @@
-//import BasicThree from './components/BasicThree';
-//import BasicCanvas from './components/BasicCanvas';
+/**
 
-//resize event
-//export module
-//gsap
-//doc
+add datgui / Conf.js
+add event emitter / loader.js
+change webpack conf
+write doc
+mixins.scss
 
-
-//import de toutes les forme ?
+*/

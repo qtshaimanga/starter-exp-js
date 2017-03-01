@@ -1,1 +1,1 @@
-# Stater Webpack - Three / Canvas
+# Stater XP : Webpack - Three / Canvas
