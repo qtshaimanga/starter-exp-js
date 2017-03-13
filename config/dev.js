@@ -1,10 +1,10 @@
-var webpack = require('webpack')
+const webpack = require('webpack')
+const webDevServer = require('webpack-dev-server')
+const chokidar = require('chokidar');
+const port = 8080;
 var config = require('./webpack.dev.config')
-var webDevServer = require('webpack-dev-server')
-var chokidar = require('chokidar');
-var port = 8080
-var compiler = webpack(config)
-var hotMiddleware = require('webpack-hot-middleware')(compiler)
+var compiler = webpack(config);
+var hotMiddleware = require('webpack-hot-middleware')(compiler);
 
 chokidar.watch('./index.html').on('all', function(path){
   hotMiddleware.publish({action: "reload"})
@@ -16,7 +16,7 @@ var server = new webDevServer(compiler, {
   quiet: false,
   noInfo: false,
   publicPath: config.output.publicPath,
-  stats: {colors: true}
+  stats: {colors: true},
 });
 
 server.use(hotMiddleware);

@@ -1,22 +1,22 @@
-var path = require('path')
-var root = path.resolve(__dirname, '../')
+const path = require('path');
+const root = path.resolve(__dirname, '../');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   entry: {
-    app: ['./src/style/main.scss', './src/main.js']
+    app: [
+    './src/main.js',
+    './src/style/main.scss'
+   ]
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
-    filename: 'bundle.js',
-    publicPath: '/dist/'
+    publicPath:  process.env.NODE_ENV === 'production' ? './' : '/',  //prod ./ et dev /
+    filename: 'bundle.js'
   },
   module: {
     loaders: [
-      {
-        test: /\.css$/,
-        exclude: /node_modules/,
-        loaders: ['style', 'css']
-      },
       {
         test: /\.scss$/,
         exclude: /node_modules/,
@@ -33,12 +33,15 @@ module.exports = {
         loader: 'url',
         query: {
           limit: 10000,
-          name: '[name].[hash:7].[ext]'
+          name: 'assets/[name].[hash:7].[ext]'
         }
       },
       {
         test: /\.json$/,
-        loader: 'json'
+        loader: 'json',
+        query: {
+          name: 'assets/[name].[hash:7].[ext]'
+        }
       },
       {
         test: /\.(glsl|frag|vert)$/,
@@ -47,5 +50,20 @@ module.exports = {
       },
     ]
   },
-  plugins:[]
+  plugins:[
+    new CopyWebpackPlugin(
+      [
+        { from: './src/assets', to: './assets' },
+        { from: './static', to: './static' }
+      ],
+      {
+        ignore: ['.DS_Store']
+      }
+    ),
+    new HtmlWebpackPlugin ({
+        inject: true,
+        filename: 'index.html',
+        template: 'index.html'
+    })
+  ]
 }

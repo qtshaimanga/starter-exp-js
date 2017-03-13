@@ -1,12 +1,14 @@
+const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 var config = require('./webpack.config');
-var webpack = require('webpack');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var extractCSS = new ExtractTextPlugin('bundle.css');
 
 config.plugins = config.plugins.concat([
   extractCSS,
   new webpack.optimize.UglifyJsPlugin({
-      comments: false
+      comments: false,
+      warnings: false,
+      drop_console: true
   })
 ])
 

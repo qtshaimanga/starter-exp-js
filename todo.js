@@ -1,9 +1,7 @@
-/**
+// webpack config pour les ressources = ok
+// webpack config du build pour css et js =
+// promise puis emitter pour le loader =
+// datgui pour la vue =
+// les mixins pour les flexbox = ok
 
-add datgui / Conf.js
-add event emitter / loader.js
-change webpack conf
-write doc
-mixins.scss
-
-*/
+//add html webpack plugin =
