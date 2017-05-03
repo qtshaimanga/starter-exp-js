@@ -1,4 +1,4 @@
-import Rectangle from '../objects/canvas/Rectangle'
+import Rectangle from '../../objects/canvas/Rectangle'
 
 /**
  * Creates a new BasicCanvas.

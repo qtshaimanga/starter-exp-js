@@ -1,8 +1,8 @@
 import * as THREE from 'three';
 import bindAll from 'lodash.bindall';
-import Rectangle from '../objects/webgl/meshes/Rectangle';
+import Rectangle from '../../objects/webgl/meshes/Rectangle';
 
-
+//TODO add GLSL
 /**
  * Creates a new BasicThree.
  * @class
