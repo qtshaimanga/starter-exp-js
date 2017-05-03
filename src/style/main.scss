@@ -1,5 +1,9 @@
-@import 'variables';
-@import '/mixins/flexbox';
+@import './variables';
+@import './animation';
+@import './mixins/flexbox';
+@import './mixins/center';
+@import './mixins/transition';
+@import './mixins/placeholder';
 
 html, body {
   margin: 0px;
@@ -10,6 +14,14 @@ html, body {
   background-color: $gray;
 }
 
+.loader {
+  width: 0px;
+  height: 0.1em;
+  background-color: $dark;
+  text-align: center;
+  @include center-xy();
+}
+
 canvas {
   margin: 0px;
   padding: 0px;
@@ -17,4 +29,9 @@ canvas {
   height: 100%;
   overflow: hidden;
   background-color: $gray;
+  opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 0.3s;
 }

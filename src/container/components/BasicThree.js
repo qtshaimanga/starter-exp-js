@@ -1,6 +1,7 @@
 import * as THREE from 'three';
+import Config from './../../config/webgl'
 import bindAll from 'lodash.bindall';
-import Rectangle from '../../objects/webgl/meshes/Rectangle';
+import Rectangle from './../../objects/webgl/meshes/Rectangle';
 
 //TODO add GLSL
 /**
@@ -11,6 +12,8 @@ class BasicThree {
 
 	constructor(){
 
+		this.config = Config.rectangle
+
 		this.scene = new THREE.Scene();
 		this.camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
 
@@ -18,7 +21,7 @@ class BasicThree {
 		this.renderer.setSize( window.innerWidth, window.innerHeight );
 		document.body.appendChild( this.renderer.domElement );
 
-		this.cube = new Rectangle(2, 2);
+		this.cube = new Rectangle(this.config.x, this.config.y, this.config.z, this.config.rotation );
 
 		this.scene.add( this.cube.mesh );
 

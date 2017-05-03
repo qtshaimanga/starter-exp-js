@@ -10,10 +10,6 @@
   }
 
   addListeners() {
-    window.addEventListener('resize', this.resizeHandler);
-  }
-
-  resizeHandler() {
 
   }
 

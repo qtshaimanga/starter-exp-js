@@ -1,7 +1,7 @@
 export default [
   {
     type: 'png',
-    id: 'favicon1',
+    id: 'favicon',
     url: './assets/favicon.png'
   }
 ]

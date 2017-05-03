@@ -24,7 +24,7 @@ class AssetsManager {
 
       let p = (progress * 100).toFixed()
 
-      if( p >= that.p ){
+      if( p != that.p || p > that.p ){
 
         Actions.onResourceProgress( p );
 
